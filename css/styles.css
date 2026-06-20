@@ -6,8 +6,8 @@
    ========================================================= */
 
 :root{
-  --ink:        #0E1318;
-  --ink-soft:   #161D24;
+  --ink:        #0E1A33;
+  --ink-soft:   #142646;
   --ink-line:   rgba(237,239,240,0.10);
   --paper:      #EDEFF0;
   --paper-soft: #F6F7F7;
@@ -125,7 +125,7 @@ p{ margin: 0; }
   border-bottom: 1px solid transparent;
 }
 .nav.is-scrolled{
-  background: rgba(14,19,24,0.92);
+  background: rgba(14,26,51,0.92);
   backdrop-filter: blur(10px);
   padding-top: 12px; padding-bottom: 12px;
   border-bottom: 1px solid var(--ink-line);
@@ -134,7 +134,10 @@ p{ margin: 0; }
   font-family: var(--font-mono);
   font-size: 14px;
   letter-spacing: 0.08em;
-  color: var(--paper);
+  color: var(--ink);
+  background: #FFFFFF;
+  padding: 7px 14px;
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -382,7 +385,9 @@ p{ margin: 0; }
 .stat:first-child{ border-left: none; }
 .stat__num{
   font-family: var(--font-mono);
-  font-size: clamp(22px,2.6vw,30px);
+  font-size: clamp(15px,1.5vw,19px);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
   color: var(--amber);
 }
 .stat:nth-child(2n) .stat__num{ color: var(--volt); }
