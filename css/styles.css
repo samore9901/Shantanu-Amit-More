@@ -590,6 +590,35 @@ p{ margin: 0; }
   .star dt{ margin-top: 10px; }
 }
 
+.proj-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 28px 28px;
+  margin-top: -4px;
+}
+.report-link{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 9px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--paper-soft);
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+.report-link:hover{
+  border-color: var(--amber);
+  color: var(--amber);
+  transform: translateY(-1px);
+}
+.report-link .arrow{ transition: transform 0.18s ease; }
+.report-link:hover .arrow{ transform: translate(2px, -2px); }
+
 /* ---------- Skills ---------- */
 .skill-groups{
   display:grid;
