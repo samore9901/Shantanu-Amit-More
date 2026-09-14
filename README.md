@@ -1,60 +1,26 @@
 # Shantanu More — Portfolio
 
-A single-page portfolio site covering education, experience, and project work in powertrain controls, engine calibration, and hybrid/electric-drive systems. Plain HTML/CSS/JS — no build step, no dependencies beyond two Google Fonts.
+Responsive, self-contained HTML/CSS/JavaScript portfolio with a homepage and five dedicated project pages. No build step, framework, or external font service is required.
 
-**Live demo (after deploy):** `https://samore9901.github.io/` or `https://samore9901.github.io/<repo-name>/` — see below.
+## Preview
 
-## File structure
+Open `index.html` in a browser, or serve this folder with `python -m http.server 8000` and visit `http://localhost:8000`.
 
-```
-.
-├── index.html              # all page content
-├── css/
-│   └── styles.css          # design system (colors, type, layout)
-├── js/
-│   └── script.js           # nav behavior, scroll-reveal, project accordions
-├── assets/
-│   ├── profile.jpg          # front-page photo
-│   └── Shantanu_More_Resume.pdf
-└── README.md
-```
+## Upload to GitHub Pages
 
-## Publish it on GitHub Pages
+Upload the contents of this folder to the root of your existing `samore9901/Shantanu-Amit-More` repository. Keep `index.html`, `projects/`, `css/`, `js/`, and `assets/` together. All internal links use relative paths for the existing GitHub Pages project URL.
 
-You have two options:
+This package does not publish or modify the live repository automatically.
 
-### Option A — your personal site (recommended)
-Publishes at the root of `https://samore9901.github.io/`.
+## Edit later
 
-1. Create a **new repository** on GitHub named exactly: `samore9901.github.io`
-2. Upload the contents of this folder (`index.html`, `css/`, `js/`, `assets/`) to the repository root — drag-and-drop on the GitHub web UI works fine, or use git:
-   ```bash
-   git init
-   git remote add origin https://github.com/samore9901/samore9901.github.io.git
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git push -u origin main
-   ```
-3. Go to **Settings → Pages**. For a `username.github.io` repo, GitHub Pages is usually enabled automatically from the `main` branch — if not, set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
-4. Wait 1–2 minutes, then visit `https://samore9901.github.io/`.
+- Homepage biography, experience, education, and project summaries: `index.html`.
+- Each case study: the corresponding file under `projects/`.
+- Colors, spacing, typography, and responsive layouts: `css/styles.css`.
+- Menu and accessible figure viewer: `js/script.js`.
+- Profile image and existing résumé: `assets/`.
+- Source figures: `assets/figures/`.
 
-### Option B — a project page
-If you'd rather keep this under an existing or differently-named repo (e.g. `portfolio`):
+Figures preserve the provided experimental and simulation plots. Selected figures were extracted from the submitted reports; supplied images were copied without changing the plotted data. The project narratives use the reviewed scope and distinguish simulations, data analysis, and hardware experiments. Original résumé and experience entries remain included.
 
-1. Push the same files to that repository.
-2. Go to **Settings → Pages** → **Source**: `Deploy from a branch`, branch `main`, folder `/ (root)`.
-3. Your site publishes at `https://samore9901.github.io/portfolio/` (substitute your repo name).
-
-## Updating content later
-
-- **Text/copy:** edit `index.html` directly — each section (`#education`, `#experience`, `#projects`, `#skills`) is clearly commented.
-- **Photo:** replace `assets/profile.jpg` with a new image of the same name (recommended: portrait orientation, ~900px wide).
-- **Résumé:** replace `assets/Shantanu_More_Resume.pdf` with an updated PDF of the same name, or update the filename in the two "Download Résumé" links in `index.html`.
-- **Colors/fonts:** all design tokens live at the top of `css/styles.css` under `:root`.
-
-## Notes
-
-- Fully responsive (mobile nav menu, stacking layout below ~900px).
-- Respects `prefers-reduced-motion` for users who disable animations.
-- No frameworks or build tools — just open `index.html` in a browser to preview locally before deploying.
+Click or tap any case-study figure to enlarge it. Figures also open directly when JavaScript is disabled. Keyboard users can navigate the menu, figures, and dialog controls.
