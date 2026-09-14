@@ -34,7 +34,7 @@
       <div>
         <p class="eyebrow">Powertrain Controls · Engine Calibration · Hybrid Systems</p>
         <h1>Shantanu&nbsp;More</h1>
-        <p class="hero__role">M.S. Automotive Engineering, Clemson University</p>
+        <p class="hero__role">M.S. Automotive Engineering, Clemson University<br>Expected graduation: August 2027</p>
         <p class="hero__summary">
           I’m an Automotive Engineering master’s student at Clemson University focused on
           powertrain controls, vehicle dynamics, and engine calibration. My experience spans
@@ -49,7 +49,7 @@
           <a class="btn btn--ghost" href="https://linkedin.com/in/shantanu-more-436786247" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
         <div class="hero__badge">
-          <span class="pulse"></span> Open to Co-op / Internship · Aug 25 – Dec 30, 2026
+          <span class="pulse"></span> Open to Co-op / Internship · Jan – Aug 2027
         </div>
       </div>
 
@@ -93,7 +93,7 @@
             <span class="gpa">GPA 4.0 / 4.0</span>
           </div>
           <p class="edu-card__org">Master of Science, Automotive Engineering</p>
-          <p class="edu-card__date">August 2025 – Present</p>
+          <p class="edu-card__date">August 2025 – August 2027 (expected)</p>
         </div>
         <div class="card edu-card reveal">
           <div class="edu-card__top">
@@ -101,7 +101,7 @@
             <span class="gpa">GPA 8.1 / 10</span>
           </div>
           <p class="edu-card__org">B.Tech, Production Engineering &amp; Industrial Management</p>
-          <p class="edu-card__date">August 2019 – July 2023</p>
+          <p class="edu-card__date">August 2019 – August 2023</p>
         </div>
       </div>
     </div>
@@ -119,11 +119,15 @@
       <div class="timeline">
 
         <div class="tl-item reveal">
-          <div class="tl-date">Jan 2026 – May 2026</div>
-          <h3>Deep Orange 18</h3>
-          <p class="tl-org">Clemson University</p>
+          <div class="tl-date">Jan 2026 – Present</div>
+          <h3>Powertrain Engineer</h3>
+          <p class="tl-org">Deep Orange 18, Clemson University</p>
           <ul>
-            <li>Modeled and sized the powertrain for an autonomous NASCAR-style vehicle, meeting a required top speed of 200 mph.</li>
+            <li>Developed a state-space bicycle model for active-steering yaw-rate tracking in Simulink; tuned PID gains to a damping ratio of 0.8 and a closed-loop natural frequency of 2 Hz.</li>
+            <li>Developed a two-stage lateral stability controller with upper-level Mamdani fuzzy logic and lower-level Model Predictive Control, enforcing torque-rate, slip-ratio, and actuator constraints.</li>
+            <li>Validated both controllers through model-in-the-loop (MIL) simulations with CarSim as the vehicle plant across lane-change maneuvers and sinusoidal steering inputs.</li>
+            <li>Established a control loop between vehicle sensors and actuators over CAN using a New Eagle Raptor ECU.</li>
+            <li>Modeled and sized the powertrain for an autonomous NASCAR-style vehicle to meet a 200 mph top-speed requirement.</li>
           </ul>
         </div>
 
@@ -132,7 +136,8 @@
           <h3>Research Assistant — Prof. Jianfeng Zhang</h3>
           <p class="tl-org">Clemson University</p>
           <ul>
-            <li>Simulated HPPC characterization tests in AVL software and formulated a Kalman-filter-based state-of-charge estimation algorithm for battery cells in MATLAB.</li>
+            <li>Extracted cell resistance and capacitance from HPPC tests and simulated a second-order (2-RC) equivalent-circuit model in MATLAB using measured cell parameters.</li>
+            <li>Developed a Kalman-filter-based algorithm to estimate battery cell state of charge.</li>
           </ul>
         </div>
 
@@ -151,16 +156,18 @@
           <h3>Mechanical Design Intern</h3>
           <p class="tl-org">Speedloop Auto</p>
           <ul>
-            <li>Performed design calculations for the brake system of a reverse-trike vehicle, achieving the braking-torque requirement to hold the vehicle on an 18% gradient.</li>
+            <li>Sized brake system components for a reverse-trike three-wheeler to meet braking torque requirements on an 18% gradient.</li>
           </ul>
         </div>
 
         <div class="tl-item reveal">
-          <div class="tl-date">Jul 2022 – Jul 2023</div>
-          <h3>Transmission Head &amp; Lead Driver</h3>
-          <p class="tl-org">Team Octane Racing Electric, COEP</p>
+          <div class="tl-date">Jul 2021 – May 2023</div>
+          <h3>Transmission System Lead</h3>
+          <p class="tl-org">Team Octane Racing Electric, Formula SAE, COEP</p>
           <ul>
-            <li>Designed and modeled a limited-slip differential with a spring-varied torque-bias ratio of 25–40%; optimized spring-pack stiffness via MATLAB simulation, improving lap time by 1.1 s.</li>
+            <li>Led a five-member team and collaborated across disciplines to design and integrate a custom limited-slip differential, reducing vehicle lap time by 1.1 s.</li>
+            <li>Built a differential-equation-based model of a 32 kW induction motor and implemented field-oriented control with an inverter switching algorithm.</li>
+            <li>Performed lap-time simulations and powertrain analysis to determine an optimal gear ratio of 5.1:1.</li>
           </ul>
         </div>
 
@@ -199,13 +206,14 @@
             <dt>Action</dt>
             <dd>
               <ul>
-                <li>Sized the electric motor and internal combustion engine from torque–speed curves and efficiency contour maps.</li>
-                <li>Modeled a series-parallel hybrid powertrain architecture in Simulink.</li>
-                <li>Designed rule-based supervisory control logic in Stateflow that allocates torque between power sources based on battery SoC, vehicle speed, and torque demand.</li>
+                <li>Sized the electric motor and internal combustion engine from torque–speed curves and efficiency maps, and modeled the series-parallel hybrid architecture in Simulink.</li>
+                <li>Designed rule-based supervisory control in Stateflow to select the torque path and propulsion source using battery SoC, vehicle speed, and driver torque demand.</li>
+                <li>Implemented PID control of coolant flow for a 90S20P battery pack and a clutch-engagement condition tied to engine idle speed.</li>
+                <li>Implemented charge limits that vary with vehicle speed and driving mode, using SoC feedback to govern electric assistance, regenerative braking, and engine-driven charging.</li>
               </ul>
             </dd>
             <dt>Result</dt>
-            <dd class="result">Benchmarked the architecture against pure-ICE and pure-EV powertrains over a city drive cycle, <strong>maximizing fuel economy</strong> while staying inside every operating limit.</dd>
+            <dd class="result">Improved simulated fuel economy by <strong>21 mpg (43 to 64 mpg)</strong> compared with a conventional ICE baseline on a recorded real-world drive cycle.</dd>
           </dl>
           <div class="proj-links">
             <a class="report-link" href="https://github.com/samore9901/Project-reports/tree/main/Hybrid_Powertrain" target="_blank" rel="noopener">View full report <span class="arrow">↗</span></a>
@@ -230,17 +238,17 @@
             <dt>Situation</dt>
             <dd>A four-wheel-independent-drive EV can lose yaw stability and spin out on low-adhesion surfaces if torque isn't allocated intelligently across all four motors.</dd>
             <dt>Task</dt>
-            <dd>Build a controller that tracks yaw rate, limits sideslip, and allocates torque optimally across all four motors in real time.</dd>
+            <dd>Build a controller that tracks desired yaw rate and sideslip while allocating torque across all four motors within actuator and tire-slip constraints.</dd>
             <dt>Action</dt>
             <dd>
               <ul>
                 <li>Developed a hierarchical controller combining Mamdani fuzzy logic with Model Predictive Control on a control-oriented state-space model.</li>
-                <li>Enforced torque, torque-rate, and tire-slip constraints directly in the controller design.</li>
-                <li>Validated the controller via software-in-the-loop co-simulation in MATLAB/Simulink and CarSim across double-lane-change and sine-wave-steer maneuvers.</li>
+                <li>Enforced torque-rate, slip-ratio, and actuator constraints directly in the controller design.</li>
+                <li>Tuned and validated the controller via model-in-the-loop (MIL) co-simulation in MATLAB/Simulink and CarSim across lane-change maneuvers and sinusoidal steering inputs.</li>
               </ul>
             </dd>
             <dt>Result</dt>
-            <dd class="result">Cut low-adhesion yaw-rate divergence from <strong>~70°/s to ±12°/s</strong> while keeping sideslip near zero, preventing spin-out. At 100 km/h sine-wave steer, reduced peak yaw rate by <strong>30–45%</strong> and peak sideslip by <strong>~75%</strong>.</dd>
+            <dd class="result">Reduced peak vehicle yaw rate by <strong>83% (77 to 13 deg/s)</strong> and sideslip angle by <strong>85%</strong> on a low-friction surface in Simulink–CarSim co-simulation.</dd>
           </dl>
           <div class="proj-links">
             <a class="report-link" href="https://github.com/samore9901/Project-reports/tree/main/Optimal_torque_allocation_MPC" target="_blank" rel="noopener">View full report <span class="arrow">↗</span></a>
@@ -306,12 +314,14 @@
             <dt>Action</dt>
             <dd>
               <ul>
-                <li>Calibrated ultrasonic sensors and applied a linear Kalman filter to filter noise and estimate obstacle distance.</li>
-                <li>Implemented adaptive cruise control and lane-keep assist through sensor fusion and PID control of throttle and steering.</li>
+                <li>Calibrated ultrasonic sensors over 200–500 mm using MATLAB polynomial fitting and applied a Kalman filter to reduce measurement noise.</li>
+                <li>Implemented sensor fusion with sequential Kalman filters and optimized the sampling rate to mitigate signal interference.</li>
+                <li>Implemented and tested PID-based adaptive cruise control with bounded traction-motor PWM commands and a 12 ms sampling interval.</li>
+                <li>Implemented lane-keep assist through sensor fusion and PID steering control.</li>
               </ul>
             </dd>
             <dt>Result</dt>
-            <dd class="result">Maintained a <strong>safe following distance</strong> from obstacles ahead and on both sides of the vehicle in real time.</dd>
+            <dd class="result">Reduced ultrasonic sensor data convergence time by <strong>51% (1.96 s to 960 ms)</strong> and maintained a <strong>300 mm gap</strong> from obstacles during RC vehicle testing.</dd>
           </dl>
           <div class="proj-links">
             <a class="report-link" href="https://github.com/samore9901/Project-reports/tree/main/Sensor_Fusion_Calibration" target="_blank" rel="noopener">View full report <span class="arrow">↗</span></a>
@@ -342,7 +352,7 @@
               <ul>
                 <li><span class="sub-label">PMSM</span>Simulated differential-equation-based Field-Oriented Control to evaluate motor-performance sensitivity to machine parameters, then modeled the motor in ANSYS Maxwell to extract electromagnetic output parameters.</li>
                 <li><span class="sub-label">INDUCTION</span>Derived differential-equation energy-conversion models for a linear electromagnetic machine and simulated a 3-phase induction machine using reference-frame theory, testing power and losses across load conditions.</li>
-                <li><span class="sub-label">CELL</span>Built a Simulink 2-RC equivalent-circuit model of a Li-ion cell to estimate state of charge from its open-circuit-voltage-vs-SoC curve.</li>
+                <li><span class="sub-label">CELL</span>Modeled a Li-ion cell with a 2-RC equivalent circuit in MATLAB using resistance and capacitance extracted from HPPC tests, and developed a Kalman-filter-based state-of-charge estimator.</li>
               </ul>
             </dd>
             <dt>Result</dt>
@@ -374,7 +384,8 @@
             <span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">Stateflow</span>
             <span class="tag">Model Predictive Control</span><span class="tag">PID Control</span>
             <span class="tag">Kalman Filtering</span><span class="tag">Sensor Fusion</span>
-            <span class="tag">Software-in-the-Loop (SIL)</span>
+            <span class="tag">State-Space Modeling</span><span class="tag">CAN Communication</span>
+            <span class="tag">Model-in-the-Loop (MIL)</span>
           </div>
         </div>
         <div class="skill-group reveal">
@@ -387,8 +398,9 @@
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>CAE &amp; Tools</h4>
+          <h4>Programming &amp; Tools</h4>
           <div class="tags">
+            <span class="tag">Python</span><span class="tag">Arduino C/C++</span>
             <span class="tag">CarSim</span><span class="tag">ANSYS Maxwell</span>
             <span class="tag">New Eagle Raptor</span><span class="tag">CATIA V5</span>
             <span class="tag">SolidWorks</span>
@@ -411,7 +423,7 @@
       <div class="reveal">
         <p class="eyebrow">Get In Touch</p>
         <h2>Let's talk powertrains.</h2>
-        <p>Open to co-op and internship opportunities in powertrain controls, engine calibration, and hybrid/electric-drive development from August through December 2026.</p>
+        <p>Open to co-op and internship opportunities in powertrain controls, engine calibration, and hybrid/electric-drive development from January through August 2027.</p>
         <div class="hero__cta" style="margin-top:28px;">
           <a class="btn btn--solid" href="assets/Shantanu_More_Resume.pdf" download>Download Résumé ↓</a>
         </div>
