@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adaptive Cruise Control &amp; Ultrasonic Sensor Fusion | Shantanu More</title>
+<meta name="description" content="Distance sensing, embedded control, and measurement-quality experiments on an Arduino-based RC vehicle.">
+<meta name="theme-color" content="#10223b">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/script.js" defer></script>
+</head>
+<body class="project-page">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner">
+<a class="brand" href="../index.html#home" aria-label="Shantanu More, home">SHANTANU<span> MORE</span></a><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu</button><nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#education">Education</a><a href="../index.html#skills">Skills</a><a href="../index.html#contact">Contact</a></nav>
+</div></header><main id="main"><header class="project-hero"><div class="container">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html#projects">Projects</a><span aria-hidden="true">/</span><span>Adaptive Cruise Control</span></nav><p class="eyebrow">Embedded sensing &amp; control</p>
+<h1>Adaptive Cruise Control &amp; Ultrasonic Sensor Fusion</h1>
+<p class="project-deck">Distance sensing, embedded control, and measurement-quality experiments on an Arduino-based RC vehicle.</p>
+<div class="tags">
+<span>Arduino C/C++</span><span>MATLAB</span><span>Kalman Filtering</span><span>PD Control</span>
+</div>
+<p class="project-meta">Academic prototype · Hardware and simulation studies</p>
+</div></header><div class="container project-highlights">
+<div class="highlight">
+<strong>≈51%</strong><span>Shorter convergence in sensor-fusion tests</span>
+</div>
+<div class="highlight">
+<strong>12.5 ms</strong><span>Reported hardware control interval</span>
+</div>
+<div class="highlight">
+<strong>300 mm</strong><span>Front-clearance target</span>
+</div>
+</div>
+<div class="container project-layout">
+<aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
+<ul>
+<li><a href="#overview">Project overview</a></li>
+<li><a href="#contribution">My contribution</a></li>
+<li><a href="#hardware">Hardware and control setup</a></li>
+<li><a href="#calibration">Ultrasonic calibration</a></li>
+<li><a href="#fusion">Sequential sensor-fusion study</a></li>
+<li><a href="#controller-response">Controller tuning and response</a></li>
+<li><a href="#scope">Results and related work</a></li>
+</ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
+<p>This project combined an RC-vehicle distance controller with separate ultrasonic sensor-calibration and fusion experiments. The work examined both closed-loop behavior and the measurement quality needed to support it.</p></section><section id="contribution"><h2>My contribution</h2>
+<ul>
+<li>Assembled and programmed the Arduino-based RC-vehicle distance-control prototype.</li>
+<li>Calibrated ultrasonic range measurements and evaluated sequential Kalman-filter updates.</li>
+<li>Tuned the hardware distance controller and explored related state-space formulations in simulation.</li>
+</ul></section><section id="hardware"><h2>Hardware and control setup</h2>
+<figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/acc-vehicle.png" data-lightbox aria-label="Enlarge: RC-vehicle prototype"><img src="../assets/figures/acc-vehicle.png" alt="RC-vehicle prototype" width="940" height="705" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>RC-vehicle prototype</strong> Ultrasonic sensors, an Arduino UNO, and the vehicle’s traction and steering actuators form the hardware platform.</figcaption></figure><p>The controller used a sensor-distance target of 350 mm, corresponding to approximately 300 mm of front clearance. The report specifies a 12.5 ms control interval.</p>
+<p>The final gains were Kp = 1.1, Ki = 0, and Kd = 2.7. Although implemented in a PID framework, these settings provide proportional–derivative control.</p></section><section id="calibration"><h2>Ultrasonic calibration</h2>
+<figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/acc-calibration.png" data-lightbox aria-label="Enlarge: Sensor calibration"><img src="../assets/figures/acc-calibration.png" alt="Sensor calibration" width="938" height="419" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Sensor calibration</strong> Measured echo timing is mapped to distance using a fitted calibration relationship.</figcaption></figure><p>Calibration established the conversion from ultrasonic timing to measured range before evaluating filtering and distance-control behavior.</p></section><section id="fusion"><h2>Sequential sensor-fusion study</h2>
+<p>Two sensors supplied sequential measurement updates to a shared Kalman estimate. Measurements were staggered by 37.5 ms, with a 75 ms period for each sensor, to reduce interference between ultrasonic signals.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table"><table>
+<thead><tr>
+<th scope="col">Test distance</th>
+<th scope="col">Single-sensor convergence</th>
+<th scope="col">Fused convergence</th>
+<th scope="col">Fused final reading</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>500 mm</td>
+<td>1,949 ms</td>
+<td>964 ms</td>
+<td>500 mm</td>
+</tr>
+<tr>
+<td>400 mm</td>
+<td>1,934 ms</td>
+<td>950 ms</td>
+<td>397 mm</td>
+</tr>
+</tbody>
+</table></div>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/acc-fusion-500.png" data-lightbox aria-label="Enlarge: 500 mm fusion test"><img src="../assets/figures/acc-fusion-500.png" alt="500 mm fusion test" width="558" height="280" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>500 mm fusion test</strong> The recorded estimate converges in 964 ms.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/acc-fusion-400.png" data-lightbox aria-label="Enlarge: 400 mm fusion test"><img src="../assets/figures/acc-fusion-400.png" alt="400 mm fusion test" width="582" height="287" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>400 mm fusion test</strong> The recorded estimate converges to 397 mm in 950 ms.</figcaption></figure>
+</div>
+<p>The experiments reduced distance-estimate convergence time by approximately 51%. This metric describes the filtering tests; it is separate from the control-loop interval and the complete vehicle response.</p></section><section id="controller-response"><h2>Controller tuning and response</h2>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/acc-response-initial.png" data-lightbox aria-label="Enlarge: Response without derivative damping"><img src="../assets/figures/acc-response-initial.png" alt="Response without derivative damping" width="790" height="234" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Response without derivative damping</strong> The initial response illustrates the oscillation addressed during controller tuning.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/acc-response-tuned.png" data-lightbox aria-label="Enlarge: Response with derivative damping"><img src="../assets/figures/acc-response-tuned.png" alt="Response with derivative damping" width="407" height="316" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Response with derivative damping</strong> The report documents improved damping after adding the derivative term.</figcaption></figure>
+</div>
+<p>Hardware testing brought the vehicle close to its target clearance. Measurement noise could still cause traction stop–start behavior, identifying a practical limitation for further refinement.</p></section><section id="scope"><h2>Results and related work</h2>
+<p>Separate state-space and LQR studies compared velocity-input and acceleration-input formulations in simulation. An additional wall-distance steering study used a 350 mm lateral target.</p>
+<p>The sensor-fusion experiments and these simulation studies were separate from the final hardware distance-control implementation. Together, they developed experience in calibration, estimation, sampling choices, and embedded feedback control.</p></section></article>
+</div>
+<nav class="container project-pagination" aria-label="Project navigation"><a href="../index.html#projects">← All projects</a><a href="electric-machine-modeling.html">Next: Electric Machine Modeling →</a></nav></main><footer id="contact" class="site-footer"><div class="container">
+<div class="footer-top">
+<div>
+<p class="eyebrow">Contact</p>
+<h2>Let’s talk automotive controls.</h2>
+<p>Open to co-op and internship opportunities in powertrain controls, vehicle dynamics, and calibration from January through August 2027.</p>
+<a class="button button-secondary" href="../assets/Shantanu_More_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+</div>
+<div class="contact-links">
+<a href="mailto:samore@clemson.edu">samore@clemson.edu</a><a href="tel:+18643250745">+1 864 325 0745</a><a href="https://www.linkedin.com/in/shantanu-more-436786247" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/samore9901" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> Shantanu More</span><a href="#main">Back to top ↑</a>
+</div>
+</div></footer>
+</body>
+</html>

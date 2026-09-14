@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electric Machine Modeling &amp; Transient Analysis | Shantanu More</title>
+<meta name="description" content="Electrical-machine dynamics, transient current and torque, and the relationship between loading and winding losses.">
+<meta name="theme-color" content="#10223b">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/script.js" defer></script>
+</head>
+<body class="project-page">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner">
+<a class="brand" href="../index.html#home" aria-label="Shantanu More, home">SHANTANU<span> MORE</span></a><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu</button><nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#education">Education</a><a href="../index.html#skills">Skills</a><a href="../index.html#contact">Contact</a></nav>
+</div></header><main id="main"><header class="project-hero"><div class="container">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html#projects">Projects</a><span aria-hidden="true">/</span><span>Electric Machine Modeling</span></nav><p class="eyebrow">First-principles modeling</p>
+<h1>Electric Machine Modeling &amp; Transient Analysis</h1>
+<p class="project-deck">Electrical-machine dynamics, transient current and torque, and the relationship between loading and winding losses.</p>
+<div class="tags">
+<span>MATLAB</span><span>Simulink</span><span>Electric Machines</span>
+</div>
+<p class="project-meta">Individual coursework · Analytical and simulation studies</p>
+</div></header><div class="container project-highlights">
+<div class="highlight">
+<strong>50 hp</strong><span>Nominal induction-machine rating</span>
+</div>
+<div class="highlight">
+<strong>≈694 A</strong><span>Simulated startup current magnitude</span>
+</div>
+<div class="highlight">
+<strong>2 load steps</strong><span>385 and 577.5 N·m</span>
+</div>
+</div>
+<div class="container project-layout">
+<aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
+<ul>
+<li><a href="#overview">Project overview</a></li>
+<li><a href="#contribution">My contribution</a></li>
+<li><a href="#induction-model">Induction-machine study</a></li>
+<li><a href="#load-response">Response to mechanical loading</a></li>
+<li><a href="#losses">Winding-loss comparison</a></li>
+<li><a href="#linear-machine">Linear electromagnetic machine</a></li>
+<li><a href="#foundations">Analytical foundations</a></li>
+<li><a href="#findings">Results and interpretation</a></li>
+</ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
+<p>The work investigated induction-machine and linear electromagnetic-machine behavior in MATLAB/Simulink. Analytical magnetic-circuit studies complemented the simulations.</p>
+<p>I evaluated electrical and mechanical transients, compared loaded operating points, and examined power flow and winding losses.</p></section><section id="contribution"><h2>My contribution</h2>
+<ul>
+<li>Built and analyzed MATLAB/Simulink machine models for the coursework studies.</li>
+<li>Evaluated startup current, electromagnetic torque, load-step response, and winding losses.</li>
+<li>Derived magnetic-circuit and equivalent-circuit quantities to connect physical parameters with model behavior.</li>
+</ul></section><section id="induction-model"><h2>Induction-machine study</h2>
+<p>The induction-machine assignment used a qd0 formulation to examine stator and referred-rotor currents, electromagnetic torque, and rotor motion.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table"><table>
+<thead><tr>
+<th scope="col">Parameter</th>
+<th scope="col">Configuration</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Nominal rating</td>
+<td>50 hp, approximately 37.3 kW</td>
+</tr>
+<tr>
+<td>Rated voltage / poles</td>
+<td>460 V RMS line-to-line / 4 poles</td>
+</tr>
+<tr>
+<td>Simulation duration</td>
+<td>1.5 s</td>
+</tr>
+<tr>
+<td>Maximum solver step</td>
+<td>10 μs</td>
+</tr>
+<tr>
+<td>Load application</td>
+<td>1.0 s</td>
+</tr>
+<tr>
+<td>Load torques</td>
+<td>385 and 577.5 N·m</td>
+</tr>
+</tbody>
+</table></div>
+<figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/motor-torque-speed.png" data-lightbox aria-label="Enlarge: Transient torque–speed response"><img src="../assets/figures/motor-torque-speed.png" alt="Transient torque–speed response" width="1160" height="741" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Transient torque–speed response</strong> The no-load startup trajectory captures torque oscillations as the rotor accelerates toward approximately 1,800 rpm.</figcaption></figure><p>The reported startup current magnitude was approximately 694 A. Electromagnetic torque ranged from about −572 to +1,657 N·m, a peak-to-peak excursion of approximately 2.23 kN·m.</p></section><section id="load-response"><h2>Response to mechanical loading</h2>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/motor-load-385.png" data-lightbox aria-label="Enlarge: 385 N·m load step"><img src="../assets/figures/motor-load-385.png" alt="385 N·m load step" width="1253" height="600" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>385 N·m load step</strong> Electromagnetic torque increases after the load is applied at 1.0 s.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/motor-load-578.png" data-lightbox aria-label="Enlarge: 577.5 N·m load step"><img src="../assets/figures/motor-load-578.png" alt="577.5 N·m load step" width="1253" height="601" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>577.5 N·m load step</strong> The heavier load produces a larger torque demand after the same no-load startup.</figcaption></figure>
+</div>
+<p>The loads represent 50% and 75% of the 770 N·m torque reference used in the submission. The shared initial startup explains why the startup peaks remain essentially unchanged between cases.</p></section><section id="losses"><h2>Winding-loss comparison</h2>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/motor-loss-385.png" data-lightbox aria-label="Enlarge: Copper losses at 385 N·m"><img src="../assets/figures/motor-loss-385.png" alt="Copper losses at 385 N·m" width="1253" height="522" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Copper losses at 385 N·m</strong> Stator and referred-rotor losses increase following load application.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/motor-loss-578.png" data-lightbox aria-label="Enlarge: Copper losses at 577.5 N·m"><img src="../assets/figures/motor-loss-578.png" alt="Copper losses at 577.5 N·m" width="1253" height="525" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Copper losses at 577.5 N·m</strong> The larger current demand produces greater winding losses.</figcaption></figure>
+</div>
+<p>The modeled loaded operating points exceed the nominal machine power rating and are interpreted as overload studies. The analysis characterizes the simulated machine response.</p></section><section id="linear-machine"><h2>Linear electromagnetic machine</h2>
+<p>A 5 V step was applied at 0.02 s with 10 Ω winding resistance, a 3 mm initial position, and zero external force.</p>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/linear-force.png" data-lightbox aria-label="Enlarge: Electromagnetic-force response"><img src="../assets/figures/linear-force.png" alt="Electromagnetic-force response" width="1253" height="594" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Electromagnetic-force response</strong> Force reaches a peak magnitude of about 1.36 N and settles to approximately 1.215 N in the negative direction.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/linear-input-power.png" data-lightbox aria-label="Enlarge: Electrical input power"><img src="../assets/figures/linear-input-power.png" alt="Electrical input power" width="1253" height="600" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Electrical input power</strong> Input power peaks at approximately 2.542 W and settles to 2.50 W.</figcaption></figure>
+</div></section><section id="foundations"><h2>Analytical foundations</h2>
+<p>Supporting calculations derived magnetic reluctance and winding inductance from geometry and permeability, examined the effect of a 2 mm air gap, and transformed coupled-winding equivalent-circuit parameters using the turns ratio.</p></section><section id="findings"><h2>Results and interpretation</h2>
+<p>Startup produced the largest transient current and torque excursions, while the load steps exposed how sustained torque demand changes winding losses. The linear-machine study linked electrical input with the force response.</p>
+<p>The torque–speed plot is a startup trajectory rather than a steady-state performance map. The results characterize the supplied simulation cases and provide a foundation for control-oriented machine modeling.</p></section></article>
+</div>
+<nav class="container project-pagination" aria-label="Project navigation"><a href="../index.html#projects">← All projects</a><a href="engine-calibration-analysis.html">Next: Engine Calibration Analysis →</a></nav></main><footer id="contact" class="site-footer"><div class="container">
+<div class="footer-top">
+<div>
+<p class="eyebrow">Contact</p>
+<h2>Let’s talk automotive controls.</h2>
+<p>Open to co-op and internship opportunities in powertrain controls, vehicle dynamics, and calibration from January through August 2027.</p>
+<a class="button button-secondary" href="../assets/Shantanu_More_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+</div>
+<div class="contact-links">
+<a href="mailto:samore@clemson.edu">samore@clemson.edu</a><a href="tel:+18643250745">+1 864 325 0745</a><a href="https://www.linkedin.com/in/shantanu-more-436786247" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/samore9901" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> Shantanu More</span><a href="#main">Back to top ↑</a>
+</div>
+</div></footer>
+</body>
+</html>

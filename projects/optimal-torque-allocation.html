@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimal Torque Allocation for EV Stability Control | Shantanu More</title>
+<meta name="description" content="Coordinated wheel-torque allocation to improve yaw response and sideslip behavior under demanding maneuvers.">
+<meta name="theme-color" content="#10223b">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/styles.css">
+<script src="../js/script.js" defer></script>
+</head>
+<body class="project-page">
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container header-inner">
+<a class="brand" href="../index.html#home" aria-label="Shantanu More, home">SHANTANU<span> MORE</span></a><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu</button><nav id="site-nav" class="site-nav" aria-label="Primary navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#education">Education</a><a href="../index.html#skills">Skills</a><a href="../index.html#contact">Contact</a></nav>
+</div></header><main id="main"><header class="project-hero"><div class="container">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html#projects">Projects</a><span aria-hidden="true">/</span><span>Optimal Torque Allocation</span></nav><p class="eyebrow">Vehicle dynamics &amp; control</p>
+<h1>Optimal Torque Allocation for EV Stability Control</h1>
+<p class="project-deck">Coordinated wheel-torque allocation to improve yaw response and sideslip behavior under demanding maneuvers.</p>
+<div class="tags">
+<span>MATLAB</span><span>Simulink</span><span>CarSim</span><span>MPC</span>
+</div>
+<p class="project-meta">Academic team project · Model-in-the-loop simulation</p>
+</div></header><div class="container project-highlights">
+<div class="highlight">
+<strong>≈83%</strong><span>Peak yaw-rate reduction in low-friction DLC</span>
+</div>
+<div class="highlight">
+<strong>25 ms</strong><span>MPC sampling interval</span>
+</div>
+<div class="highlight">
+<strong>3 maneuvers</strong><span>High- and low-adhesion simulation cases</span>
+</div>
+</div>
+<div class="container project-layout">
+<aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
+<ul>
+<li><a href="#overview">Project overview</a></li>
+<li><a href="#contribution">My contribution</a></li>
+<li><a href="#architecture">Control architecture</a></li>
+<li><a href="#low-friction">Low-friction lane change</a></li>
+<li><a href="#additional-cases">Additional test cases</a></li>
+<li><a href="#findings">Engineering findings</a></li>
+</ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
+<p>A hierarchical controller combined an upper-level Mamdani fuzzy controller with a constrained model predictive torque allocator for a four-wheel independently driven electric vehicle. The controller was evaluated against an uncontrolled baseline in MATLAB/Simulink–CarSim co-simulation.</p></section><section id="contribution"><h2>My contribution</h2>
+<p>I configured the CarSim vehicle model and three test maneuvers, and tuned the MPC across the simulation cases. I jointly developed the co-simulation integration, two-degree-of-freedom reference model, and fuzzy-controller refinements, and contributed to debugging and interpretation of the results.</p>
+<p>The MPC formulation and solver implementation were led by a teammate. My primary focus was integration, tuning, and simulation evaluation.</p></section><section id="architecture"><h2>Control architecture</h2>
+<p>A bicycle reference model defines desired yaw behavior. The fuzzy controller translates yaw-rate and sideslip errors into corrective yaw-moment demand. The MPC distributes that demand among the four wheels using a prediction model based on wheel-slip dynamics.</p>
+<figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/torque-architecture.jpeg" data-lightbox aria-label="Enlarge: Simulink–CarSim control loop"><img src="../assets/figures/torque-architecture.jpeg" alt="Simulink–CarSim control loop" width="985" height="726" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Simulink–CarSim control loop</strong> Vehicle states and individual wheel measurements feed the supervisory yaw controller and constrained torque allocator.</figcaption></figure><div class="table-wrap" tabindex="0" role="region" aria-label="Data table"><table>
+<thead><tr>
+<th scope="col">Controller parameter</th>
+<th scope="col">Configuration</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Sampling interval</td>
+<td>25 ms</td>
+</tr>
+<tr>
+<td>Prediction / control horizons</td>
+<td>10 / 3 steps</td>
+</tr>
+<tr>
+<td>Configured wheel-torque limits</td>
+<td>±500 N·m</td>
+</tr>
+<tr>
+<td>Torque-increment limit</td>
+<td>200 N·m per step</td>
+</tr>
+<tr>
+<td>Configured slip-ratio bounds</td>
+<td>−0.2 to +0.2</td>
+</tr>
+</tbody>
+</table></div>
+<p>The quadratic objective balances yaw-moment tracking against torque variation. The implementation uses the Hildreth dual method to solve the constrained optimization problem.</p></section><section id="low-friction"><h2>Low-friction lane change</h2>
+<p>The low-adhesion double lane change used an 80 km/h entry speed and road friction coefficient μ = 0.30. Peak yaw-rate magnitude decreased from approximately 77°/s to 13°/s, a reduction of about 83% in this simulation.</p>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-yaw-low-friction.jpeg" data-lightbox aria-label="Enlarge: Vehicle yaw rate"><img src="../assets/figures/torque-yaw-low-friction.jpeg" alt="Vehicle yaw rate" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Vehicle yaw rate</strong> The controlled response stays within a smaller range while the baseline develops a large return-phase excursion.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-sideslip-low-friction.jpeg" data-lightbox aria-label="Enlarge: Vehicle sideslip"><img src="../assets/figures/torque-sideslip-low-friction.jpeg" alt="Vehicle sideslip" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Vehicle sideslip</strong> Sideslip remains close to zero in the controlled run, while the baseline develops a large excursion.</figcaption></figure>
+</div>
+<figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/torque-path-low-friction.jpeg" data-lightbox aria-label="Enlarge: Trajectory and recovery"><img src="../assets/figures/torque-path-low-friction.jpeg" alt="Trajectory and recovery" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Trajectory and recovery</strong> The controlled vehicle returns close to the target path, with some overshoot during recovery.</figcaption></figure><figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/torque-wheel-torques.jpeg" data-lightbox aria-label="Enlarge: Individual wheel-torque commands"><img src="../assets/figures/torque-wheel-torques.jpeg" alt="Individual wheel-torque commands" width="1506" height="992" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Individual wheel-torque commands</strong> Left–right and front–rear torque redistribution generates corrective yaw action during the maneuver.</figcaption></figure></section><section id="additional-cases"><h2>Additional test cases</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Data table"><table>
+<thead><tr>
+<th scope="col">Maneuver</th>
+<th scope="col">Speed</th>
+<th scope="col">Road friction μ</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Tight double lane change</td>
+<td>120 km/h entry</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>Low-friction double lane change</td>
+<td>80 km/h entry</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td>Sinusoidal steering</td>
+<td>100 km/h</td>
+<td>0.85</td>
+</tr>
+</tbody>
+</table></div>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-path-high-friction.jpeg" data-lightbox aria-label="Enlarge: High-adhesion trajectory"><img src="../assets/figures/torque-path-high-friction.jpeg" alt="High-adhesion trajectory" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>High-adhesion trajectory</strong> The controlled vehicle recovers toward its original lane after the aggressive maneuver.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-yaw-high-friction.jpeg" data-lightbox aria-label="Enlarge: High-adhesion yaw response"><img src="../assets/figures/torque-yaw-high-friction.jpeg" alt="High-adhesion yaw response" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>High-adhesion yaw response</strong> Control reduces the large excursions seen in the baseline and brings yaw rate back toward zero.</figcaption></figure>
+</div>
+<div class="figure-group">
+<figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-yaw-sine.jpeg" data-lightbox aria-label="Enlarge: Sinusoidal steering: yaw rate"><img src="../assets/figures/torque-yaw-sine.jpeg" alt="Sinusoidal steering: yaw rate" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Sinusoidal steering: yaw rate</strong> The benefit varies over the maneuver, with smaller controlled peaks during the earlier cycles.</figcaption></figure><figure class="project-figure"><a class="figure-link" href="../assets/figures/torque-sideslip-sine.jpeg" data-lightbox aria-label="Enlarge: Sinusoidal steering: sideslip"><img src="../assets/figures/torque-sideslip-sine.jpeg" alt="Sinusoidal steering: sideslip" width="1600" height="763" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Sinusoidal steering: sideslip</strong> The report describes roughly ±1.5° controlled sideslip, compared with baseline excursions of about +5.7° and −6.5°.</figcaption></figure>
+</div></section><section id="findings"><h2>Engineering findings</h2>
+<p>The simulations show how constrained wheel-torque allocation can improve lateral stability. The high-demand cases also expose limits in available control authority and tracking performance. These results support tuning and model development within the tested simulation conditions.</p>
+<p>CarSim’s internal driver generates steering for the lane-change tests, so the controlled and uncontrolled steering histories can differ.</p></section></article>
+</div>
+<nav class="container project-pagination" aria-label="Project navigation"><a href="../index.html#projects">← All projects</a><a href="adaptive-cruise-control.html">Next: Adaptive Cruise Control →</a></nav></main><footer id="contact" class="site-footer"><div class="container">
+<div class="footer-top">
+<div>
+<p class="eyebrow">Contact</p>
+<h2>Let’s talk automotive controls.</h2>
+<p>Open to co-op and internship opportunities in powertrain controls, vehicle dynamics, and calibration from January through August 2027.</p>
+<a class="button button-secondary" href="../assets/Shantanu_More_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+</div>
+<div class="contact-links">
+<a href="mailto:samore@clemson.edu">samore@clemson.edu</a><a href="tel:+18643250745">+1 864 325 0745</a><a href="https://www.linkedin.com/in/shantanu-more-436786247" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/samore9901" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> Shantanu More</span><a href="#main">Back to top ↑</a>
+</div>
+</div></footer>
+</body>
+</html>
