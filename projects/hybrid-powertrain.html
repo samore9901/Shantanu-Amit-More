@@ -36,19 +36,14 @@
 <aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
 <ul>
 <li><a href="#overview">Project overview</a></li>
-<li><a href="#contribution">My contribution</a></li>
+
 <li><a href="#architecture">Powertrain architecture</a></li>
 <li><a href="#supervisory-control">Supervisory control</a></li>
 <li><a href="#simulation">Driving-cycle evaluation</a></li>
 <li><a href="#results">Results and interpretation</a></li>
 </ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
 <p>The project combined component sizing, vehicle modeling, and rule-based energy management for a series-parallel hybrid powertrain. The simulation coordinated engine and motor operation in response to driver demand, vehicle speed, and battery state of charge.</p>
-<p>The work formed part of a team study comparing conventional, battery-electric, and hybrid architectures. The figures below focus on the hybrid model and its supervisory control.</p></section><section id="contribution"><h2>My contribution</h2>
-<ul>
-<li>Contributed to powertrain component sizing and the integrated MATLAB/Simulink model.</li>
-<li>Developed supervisory control logic in Stateflow to select propulsion and charging modes.</li>
-<li>Evaluated simulated fuel use, speed response, and battery state of charge over the driving cycle.</li>
-</ul></section><section id="architecture"><h2>Powertrain architecture</h2>
+<p>The work formed part of a team study comparing conventional, battery-electric, and hybrid architectures. The figures below focus on the hybrid model and its supervisory control.</p></section><section id="architecture"><h2>Powertrain architecture</h2>
 <p>The hybrid model combines the engine, electric machine, battery, and driveline. Supervisory commands determine which torque path is active and when the engine supports propulsion or battery charging.</p>
 <figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/hybrid-architecture.png" data-lightbox aria-label="Enlarge: Integrated hybrid powertrain model"><img src="../assets/figures/hybrid-architecture.png" alt="Integrated hybrid powertrain model" width="1253" height="594" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Integrated hybrid powertrain model</strong> The system model connects component behavior with the supervisory decisions that determine energy flow.</figcaption></figure></section><section id="supervisory-control"><h2>Supervisory control</h2>
 <p>Economy and Sport mode logic use driver demand, speed, and state of charge to select operating states. Stateflow makes the transition conditions and commanded actions explicit, including electric propulsion, engine assistance, charging, and regenerative braking.</p>

@@ -36,15 +36,13 @@
 <aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
 <ul>
 <li><a href="#overview">Project overview</a></li>
-<li><a href="#contribution">My contribution</a></li>
+
 <li><a href="#architecture">Control architecture</a></li>
 <li><a href="#low-friction">Low-friction lane change</a></li>
 <li><a href="#additional-cases">Additional test cases</a></li>
 <li><a href="#findings">Engineering findings</a></li>
 </ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
-<p>A hierarchical controller combined an upper-level Mamdani fuzzy controller with a constrained model predictive torque allocator for a four-wheel independently driven electric vehicle. The controller was evaluated against an uncontrolled baseline in MATLAB/Simulink–CarSim co-simulation.</p></section><section id="contribution"><h2>My contribution</h2>
-<p>I configured the CarSim vehicle model and three test maneuvers, and tuned the MPC across the simulation cases. I jointly developed the co-simulation integration, two-degree-of-freedom reference model, and fuzzy-controller refinements, and contributed to debugging and interpretation of the results.</p>
-<p>The MPC formulation and solver implementation were led by a teammate. My primary focus was integration, tuning, and simulation evaluation.</p></section><section id="architecture"><h2>Control architecture</h2>
+<p>A hierarchical controller combined an upper-level Mamdani fuzzy controller with a constrained model predictive torque allocator for a four-wheel independently driven electric vehicle. The controller was evaluated against an uncontrolled baseline in MATLAB/Simulink–CarSim co-simulation.</p></section><section id="architecture"><h2>Control architecture</h2>
 <p>A bicycle reference model defines desired yaw behavior. The fuzzy controller translates yaw-rate and sideslip errors into corrective yaw-moment demand. The MPC distributes that demand among the four wheels using a prediction model based on wheel-slip dynamics.</p>
 <figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/torque-architecture.jpeg" data-lightbox aria-label="Enlarge: Simulink–CarSim control loop"><img src="../assets/figures/torque-architecture.jpeg" alt="Simulink–CarSim control loop" width="985" height="726" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Simulink–CarSim control loop</strong> Vehicle states and individual wheel measurements feed the supervisory yaw controller and constrained torque allocator.</figcaption></figure><div class="table-wrap" tabindex="0" role="region" aria-label="Data table"><table>
 <thead><tr>

@@ -36,19 +36,14 @@
 <aside class="project-toc"><nav aria-label="On this page"><p class="eyebrow">On this page</p>
 <ul>
 <li><a href="#overview">Project overview</a></li>
-<li><a href="#contribution">My contribution</a></li>
+
 <li><a href="#hardware">Hardware and control setup</a></li>
 <li><a href="#calibration">Ultrasonic calibration</a></li>
 <li><a href="#fusion">Sequential sensor-fusion study</a></li>
 <li><a href="#controller-response">Controller tuning and response</a></li>
 <li><a href="#scope">Results and related work</a></li>
 </ul></nav></aside><article class="project-content"><section id="overview"><h2>Project overview</h2>
-<p>This project combined an RC-vehicle distance controller with separate ultrasonic sensor-calibration and fusion experiments. The work examined both closed-loop behavior and the measurement quality needed to support it.</p></section><section id="contribution"><h2>My contribution</h2>
-<ul>
-<li>Assembled and programmed the Arduino-based RC-vehicle distance-control prototype.</li>
-<li>Calibrated ultrasonic range measurements and evaluated sequential Kalman-filter updates.</li>
-<li>Tuned the hardware distance controller and explored related state-space formulations in simulation.</li>
-</ul></section><section id="hardware"><h2>Hardware and control setup</h2>
+<p>This project combined an RC-vehicle distance controller with separate ultrasonic sensor-calibration and fusion experiments. The work examined both closed-loop behavior and the measurement quality needed to support it.</p></section><section id="hardware"><h2>Hardware and control setup</h2>
 <figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/acc-vehicle.png" data-lightbox aria-label="Enlarge: RC-vehicle prototype"><img src="../assets/figures/acc-vehicle.png" alt="RC-vehicle prototype" width="940" height="705" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>RC-vehicle prototype</strong> Ultrasonic sensors, an Arduino UNO, and the vehicle’s traction and steering actuators form the hardware platform.</figcaption></figure><p>The controller used a sensor-distance target of 350 mm, corresponding to approximately 300 mm of front clearance. The report specifies a 12.5 ms control interval.</p>
 <p>The final gains were Kp = 1.1, Ki = 0, and Kd = 2.7. Although implemented in a PID framework, these settings provide proportional–derivative control.</p></section><section id="calibration"><h2>Ultrasonic calibration</h2>
 <figure class="project-figure wide-figure"><a class="figure-link" href="../assets/figures/acc-calibration.png" data-lightbox aria-label="Enlarge: Sensor calibration"><img src="../assets/figures/acc-calibration.png" alt="Sensor calibration" width="938" height="419" loading="lazy" decoding="async"><span class="figure-enlarge" aria-hidden="true">Enlarge ↗</span></a><figcaption><strong>Sensor calibration</strong> Measured echo timing is mapped to distance using a fitted calibration relationship.</figcaption></figure><p>Calibration established the conversion from ultrasonic timing to measured range before evaluating filtering and distance-control behavior.</p></section><section id="fusion"><h2>Sequential sensor-fusion study</h2>
